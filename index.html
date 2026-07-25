@@ -13,19 +13,27 @@
 
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="loading">
 
   <div class="page-loader" id="pageLoader">
 
-  <div class="loader-logo">
+    <div class="loader-logo">
 
-  <div class="loader-mark"></div>
+      <span class="nav-logo-mark" aria-hidden="true">
+        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M13 2L23 22H3L13 2Z" fill="url(#loaderMark)"/>
+          <path d="M13 9L18 22H8L13 9Z" fill="#09090B" fill-opacity="0.55"/>
+          <defs>
+            <linearGradient id="loaderMark" x1="3" y1="2" x2="23" y2="22" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#8B5CF6"/>
+              <stop offset="1" stop-color="#3B82F6"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </span>
+      <span class="nav-logo-text">NorthPeak<span class="nav-logo-sub">Digital</span></span>
 
-  <div class="loader-text">
-    NorthPeak
-  </div>
-
-  </div>
+    </div>
 
   </div>
 

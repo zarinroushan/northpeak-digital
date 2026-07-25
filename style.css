@@ -167,6 +167,7 @@ textarea:focus-visible {
   font-family: var(--font-body);
   font-weight: 600;
   font-size: 15px;
+  will-change:transform;
   padding: 13px 24px;
   border-radius: var(--radius-pill);
   border: 1px solid transparent;
@@ -269,8 +270,8 @@ color:#111;
 
     background:rgba(255,255,255,.78);
 
-    backdrop-filter:blur(20px);
-    -webkit-backdrop-filter:blur(20px);
+    backdrop-filter:blur(26px);
+    -webkit-backdrop-filter:blur(26px);
 
     border:1px solid rgba(255,255,255,.55);
 
@@ -532,7 +533,7 @@ font-size:clamp(56px,5.6vw,80px);
 
 line-height:.95;
 
-letter-spacing:-3px;
+letter-spacing:-3.8px;
 
 max-width:11ch;
 
@@ -548,7 +549,9 @@ margin-bottom:36px;
 
     font-size:20px;
 
-    color:#666;
+    /*color:#666;*/
+
+    color:#5f5f5f;
 
     line-height:1.8;
 
@@ -589,6 +592,8 @@ margin-bottom:36px;
     transform:
       translateX(-70px)
       scale(1.12);
+    transform-style: preserve-3d;
+    perspective:1200px;
 }
 
 .dash{
@@ -596,6 +601,8 @@ margin-bottom:36px;
 position:relative;
 
 width:100%;
+
+will-change:transform;
 
 min-height:620px;
 
@@ -623,7 +630,7 @@ forwards;
 
 }
 
-@keyframes dashReveal{
+/*@keyframes dashReveal{
 
 to{
 
@@ -633,6 +640,30 @@ transform:
 
 translateY(120px)
 
+scale(1);
+
+}
+
+}*/
+
+@keyframes dashReveal{
+
+from{
+
+opacity:0;
+
+transform:
+translateY(170px)
+scale(.92);
+
+}
+
+to{
+
+opacity:1;
+
+transform:
+translateY(120px)
 scale(1);
 
 }
@@ -823,6 +854,7 @@ translate(-10px,10px);
 .service-card {
   position: relative;
   padding: 30px 28px;
+  will-change:transform;
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, var(--surface), rgba(255,255,255,0.015));
   border: 1px solid var(--border);
@@ -894,6 +926,7 @@ translate(-10px,10px);
 .work-card {
   border-radius: var(--radius-lg);
   overflow: hidden;
+  will-change:transform;
   border: 1px solid var(--border);
   background: var(--bg-elevated);
   transition: transform var(--dur-med) var(--ease-out), border-color var(--dur-fast) var(--ease-soft);
@@ -979,6 +1012,7 @@ translate(-10px,10px);
   display: flex;
   flex-direction: column;
   padding: 32px 28px;
+  will-change:transform;
   border-radius: var(--radius-lg);
   background: linear-gradient(180deg, var(--surface), rgba(255,255,255,0.015));
   border: 1px solid var(--border);
@@ -1258,10 +1292,13 @@ translate(-10px,10px);
     margin-bottom:0;
     transform:none;
     justify-content:center;
+    perspective:1200px;
+    transform-style:preserve-3d;
   }
   .dash{
     min-height:320px;
-    transform:none;
+    margin:0 auto;
+    animation:dashRevealMobile .8s ease forwards;
   }
   .dash-panel.dash-main { width: min(94%, 340px); }
   .dash-card { min-width: 148px; padding: 11px 13px; }
@@ -1308,6 +1345,24 @@ translate(-10px,10px);
   .footer-top .footer-col:last-child { grid-column: auto; }
 }
 
+@media (max-width:860px){
+
+@keyframes dashRevealMobile{
+
+from{
+    opacity:0;
+    transform:translateY(40px);
+}
+
+to{
+    opacity:1;
+    transform:translateY(0);
+}
+
+}
+
+}
+
 /* Mobile — 480px and below (covers 360px target) */
 @media (max-width: 480px) {
   .container { padding-inline: 20px; }
@@ -1316,6 +1371,11 @@ translate(-10px,10px);
     padding-top:110px;
     padding-bottom:60px;
   }
+
+  .hero-visual{
+    margin-bottom:50px;
+  }
+
   /*.hero-title { font-size: clamp(30px, 9vw, 38px); }*/
   .hero-title{
     font-size:42px;
@@ -1339,6 +1399,7 @@ translate(-10px,10px);
 
   .dash-card{
     min-width:108px;
+    min-height:260px;
     gap:6px;
     padding:8px;
     border-radius:14px;
@@ -1425,7 +1486,25 @@ body.loading{
     visibility:hidden;
 }
 
+
 .loader-logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    animation:loaderScale .8s ease;
+}
+
+.loader-logo .nav-logo-text{
+    font-size:34px;
+    font-weight:700;
+}
+
+.loader-logo .nav-logo-sub{
+    color:var(--text-3);
+}
+
+/*.loader-logo{
 
     display:flex;
     align-items:center;
@@ -1456,7 +1535,7 @@ body.loading{
     font-family:"Space Grotesk";
 
     font-weight:700;
-}
+}*/
 
 @keyframes pulseTriangle{
 
