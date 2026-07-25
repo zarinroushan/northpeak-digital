@@ -231,7 +231,7 @@
 Page Intro
 ---------------------------*/
 
-document.body.classList.add("loading");
+/*document.body.classList.add("loading");
 
 window.addEventListener("load",()=>{
 
@@ -241,8 +241,36 @@ document
 .getElementById("pageLoader")
 .classList.add("hide");
 
+const loader = document.getElementById("pageLoader");
+
+if (loader) {
+    loader.classList.add("hide");
+}
+
 document.body.classList.remove("loading");
 
-},1200);
+},800);
+
+}); */
+
+
+
+window.addEventListener("load", () => {
+
+    requestAnimationFrame(() => {
+
+        setTimeout(() => {
+
+            const loader = document.getElementById("pageLoader");
+
+            if (loader) {
+                loader.classList.add("hide");
+            }
+
+            document.body.classList.remove("loading");
+
+        }, 800);
+
+    });
 
 });
