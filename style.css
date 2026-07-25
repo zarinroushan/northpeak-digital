@@ -1244,9 +1244,25 @@ translate(-10px,10px);
 /* Tablet — 768px: hero stacks, nav collapses */
 @media (max-width: 860px) {
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { order: -1; min-height: 340px; margin-bottom: 8px; }
-  .hero-content { text-align: left; }
-  .dash { min-height: 340px; }
+  /*.hero-visual { order: -1; min-height: 340px; margin-bottom: 8px; }
+  .hero-content { text-align: left; }*/
+  .hero-content{
+    order:1;
+    text-align:left;
+  }
+
+  .hero-visual{
+    order:2;
+    min-height:320px;
+    margin-top:24px;
+    margin-bottom:0;
+    transform:none;
+    justify-content:center;
+  }
+  .dash{
+    min-height:320px;
+    transform:none;
+  }
   .dash-panel.dash-main { width: min(94%, 340px); }
   .dash-card { min-width: 148px; padding: 11px 13px; }
 
@@ -1295,19 +1311,78 @@ translate(-10px,10px);
 /* Mobile — 480px and below (covers 360px target) */
 @media (max-width: 480px) {
   .container { padding-inline: 20px; }
-  .hero { padding-top: 32px; }
-  .hero-title { font-size: clamp(30px, 9vw, 38px); }
+  /*.hero { padding-top: 32px; }*/
+  .hero{
+    padding-top:110px;
+    padding-bottom:60px;
+  }
+  /*.hero-title { font-size: clamp(30px, 9vw, 38px); }*/
+  .hero-title{
+    font-size:42px;
+    line-height:1;
+    letter-spacing:-2px;
+    max-width:8ch;
+    margin-bottom:24px;
+  }
+
+  .hero-subtitle{
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:28px;
+  }
+
   .hero-ctas { flex-direction: column; align-items: stretch; }
   .hero-ctas .btn { width: 100%; }
   .hero-social-proof { flex-direction: column; align-items: flex-start; gap: 12px; }
 
-  .dash-card { min-width: 128px; gap: 8px; padding: 9px 11px; }
-  .dash-card-label { font-size: 10.5px; }
-  .dash-card-value { font-size: 13px; }
-  .dash-card-revenue { left: -2%; }
-  .dash-card-visitors { right: -2%; }
-  .dash-card-traffic { left: -2%; }
-  .dash-card-growth { right: -2%; }
+  /*.dash-card { min-width: 128px; gap: 8px; padding: 9px 11px; }*/
+
+  .dash-card{
+    min-width:108px;
+    gap:6px;
+    padding:8px;
+    border-radius:14px;
+  }
+  .dash-card-label { font-size: 9px; }
+  .dash-card-value { font-size: 12px; }
+  /*.dash-card-revenue { left: -2%; }*/
+  .dash-card-revenue{
+    top:8px;
+    left:6px;
+  }
+  /*.dash-card-visitors { right: -2%; }*/
+  .dash-card-visitors{
+    top:18px;
+    right:6px;
+  }
+  /*.dash-card-traffic { left: -2%; }*/
+  .dash-card-traffic{
+    bottom:18px;
+    left:6px;
+  }
+  /*.dash-card-growth { right: -2%; }*/
+  .dash-card-growth{
+    bottom:8px;
+    right:6px;
+  }
+
+  .nav-wrap{
+    height:60px;
+    top:12px;
+  }
+
+  .nav{
+    padding:0 18px;
+  }
+
+  .nav-logo-text{
+    font-size:18px;
+  }
+
+  .nav-toggle{
+    width:42px;
+    height:42px;
+  }
 
   .trusted-logos { gap: 22px 32px; }
 
